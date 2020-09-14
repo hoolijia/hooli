@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: web, manage, core, db
+  messages:
+    encoding: utf-8
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+server:
+  port: 9090
+
+logging:
+  config: classpath:logback-spring.xml

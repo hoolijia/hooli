@@ -1,0 +1,6 @@
+#server:
+#  port: 9091
+#
+#
+## 生成环境为false
+#spring.swagger2.enabled: true

@@ -1,0 +1,19 @@
+server:
+  port: 9091
+
+spring:
+  profiles:
+    active: manage, core, db
+  messages:
+    encoding: utf-8
+
+logging:
+  level:
+    root:  ERROR
+    org.springframework:  ERROR
+    org.mybatis:  ERROR
+    com.hooli.manage:  DEBUG
+    com.hooli:  ERROR
+
+# 生成环境为false
+spring.swagger2.enabled: true

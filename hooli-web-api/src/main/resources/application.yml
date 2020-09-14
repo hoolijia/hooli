@@ -1,0 +1,16 @@
+server:
+  port: 9092
+
+spring:
+  profiles:
+    active: db, core, web
+  messages:
+    encoding: UTF-8
+
+logging:
+  level:
+    root:  ERROR
+    org.springframework:  ERROR
+    org.mybatis:  ERROR
+    com.hooli.web:  DEBUG
+    com.hooli:  ERROR
