@@ -14,6 +14,3 @@ logging:
     org.mybatis:  ERROR
     com.hooli.manage:  DEBUG
     com.hooli:  ERROR
-
-# 生成环境为false
-spring.swagger2.enabled: true

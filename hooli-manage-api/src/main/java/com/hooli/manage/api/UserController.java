@@ -8,10 +8,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.Assert;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "用户接口")
 @RestController
@@ -34,13 +33,24 @@ public class UserController {
     }
 
     @ApiOperation("注册用户")
-    @PostMapping("/user")
-    public String registerUser() {
+    @PostMapping("/register")
+    public String registerUser(@RequestBody @Validated UserVo userVo) {
         log.info("----------- 注册用户 -------------");
+
+        // 使用假线程池
         //this.iScoreService.addScore();
+
+        // 使用线程池
         this.iScoreService.addScore2();
 
         return "注册成功";
+    }
+
+    @PostMapping("/update")
+    public void updateUser(@RequestBody @Validated UserVo userVo) {
+
+        UserVo user = null;
+        Assert.notNull(user, "用户不存在！");
     }
 
     @PostMapping("/testUser")
