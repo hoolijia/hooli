@@ -43,7 +43,7 @@ public class GlobalExceptionHandler {
                 .msg(e.msg)
                 .exception(e.getClass().getName())
                 .build();
-        log.warn("URL:{} ,业务异常:{}", request.getRequestURI(),error);
+        log.warn("URL:{} ,业务异常:{}", request.getRequestURI(), error);
         return error;
     }
 }
