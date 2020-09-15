@@ -1,5 +1,6 @@
-package com.hooli.core.config;
+package com.hooli.core.advice;
 
+import com.hooli.core.response.ErrorResult;
 import com.hooli.core.response.Result;
 import com.hooli.core.utils.JsonUtil;
 import org.springframework.core.MethodParameter;
@@ -15,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @description：统一返回值
  */
 @ControllerAdvice(basePackages = "com.hooli")
-public class ResponseConfig implements ResponseBodyAdvice {
+public class ResponseHandler implements ResponseBodyAdvice {
 
     /**
      * @description：是否支持advice功能
@@ -30,7 +31,10 @@ public class ResponseConfig implements ResponseBodyAdvice {
      */
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        if (o instanceof String){
+        if (o instanceof ErrorResult) {
+            ErrorResult errorResult = (ErrorResult) o;
+            return Result.fail(errorResult.getStatus(), errorResult.getMsg());
+        } else if (o instanceof String) {
             return JsonUtil.object2Json(Result.success(o));
         }
 

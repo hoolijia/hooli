@@ -40,4 +40,9 @@ public class UserController {
 
         return "注册成功";
     }
+
+    @PostMapping("/error1")
+    public void error1() {
+        int i = 9 / 0;
+    }
 }
