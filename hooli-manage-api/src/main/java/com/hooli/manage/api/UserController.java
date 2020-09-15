@@ -1,5 +1,7 @@
 package com.hooli.manage.api;
 
+import com.hooli.core.enums.ResultCode;
+import com.hooli.core.exceptions.BusinessException;
 import com.hooli.manage.service.IScoreService;
 import com.hooli.manage.vo.UserVo;
 import io.swagger.annotations.Api;
@@ -41,8 +43,20 @@ public class UserController {
         return "注册成功";
     }
 
+    @PostMapping("/testUser")
+    public void testUser() {
+        System.out.println("testUser");
+    }
+
+    @ApiOperation("全局异常")
     @PostMapping("/error1")
     public void error1() {
         int i = 9 / 0;
+    }
+
+    @ApiOperation("自定义异常")
+    @PostMapping("/error2")
+    public void error2() {
+        throw new BusinessException(ResultCode.ERROR_USER_HAS_EXISTED);
     }
 }

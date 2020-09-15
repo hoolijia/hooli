@@ -31,4 +31,19 @@ public class GlobalExceptionHandler {
         log.error("URL:{}, 系统异常：", request.getRequestURI(), e);
         return error;
     }
+
+    /**
+     * @author     ：hooli
+     * @date       ：Created in 2020/9/15 10:45 上午
+     * @description：处理自定义异常
+     */
+    @ExceptionHandler(BusinessException.class)
+    public ErrorResult handleBusinessException(BusinessException e, HttpServletRequest request) {
+        ErrorResult error = ErrorResult.builder().status(e.code)
+                .msg(e.msg)
+                .exception(e.getClass().getName())
+                .build();
+        log.warn("URL:{} ,业务异常:{}", request.getRequestURI(),error);
+        return error;
+    }
 }

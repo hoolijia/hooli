@@ -15,16 +15,14 @@ import lombok.NoArgsConstructor;
 @Data
 public class Result<T> {
 
-    // 状态
-    private Integer status;
-    // 状态码的描述
-    private String desc;
-    // 返回的数据
+    private Integer code;
+    private String msg;
     private T data;
 
     /**
-     * 成功，没有data数据
-     * @return
+     * @author     ：hooli
+     * @date       ：Created in 2020/9/15 10:54 上午
+     * @description：成功，没有data数据
      */
     public static Result success(){
         Result result = new Result();
@@ -33,9 +31,9 @@ public class Result<T> {
     }
 
     /**
-     * 成功，有data数据
-     * @param data
-     * @return
+     * @author     ：hooli
+     * @date       ：Created in 2020/9/15 10:55 上午
+     * @description：成功，有data数据
      */
     public static Result success(Object data){
         Result result = new Result();
@@ -45,22 +43,21 @@ public class Result<T> {
     }
 
     /**
-     * 失败，指定status和desc
-     * @param status
-     * @param desc
-     * @return
+     * @author     ：hooli
+     * @date       ：Created in 2020/9/15 10:55 上午
+     * @description：失败，指定status和desc
      */
     public static Result fail(Integer status, String desc){
         Result result = new Result();
-        result.setStatus(status);
-        result.setDesc(desc);
+        result.setCode(status);
+        result.setMsg(desc);
         return result;
     }
 
     /**
-     * 失败，指定ResultCode enum
-     * @param resultCode
-     * @return
+     * @author     ：hooli
+     * @date       ：Created in 2020/9/15 10:55 上午
+     * @description：失败，指定ResultCode
      */
     public static Result fail(ResultCode resultCode){
         Result result = new Result();
@@ -72,7 +69,7 @@ public class Result<T> {
      * 把ResultCode枚举转换为ResResult
      */
     private void setResultCode(ResultCode resultCode){
-        this.status = resultCode.code();
-        this.desc = resultCode.msg();
+        this.code = resultCode.code();
+        this.msg = resultCode.msg();
     }
 }
