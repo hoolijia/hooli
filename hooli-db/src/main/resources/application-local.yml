@@ -1,8 +1,8 @@
-pagehelper:
-  helperDialect:  mysql
-  reasonable: true
-  supportMethodsArguments:  true
-  params: count=countSql
+#pagehelper:
+#  helperDialect:  mysql
+#  reasonable: true
+#  supportMethodsArguments:  true
+#  params: count=countSql
 
 spring:
   datasource:

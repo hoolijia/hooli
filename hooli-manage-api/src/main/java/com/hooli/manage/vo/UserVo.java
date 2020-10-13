@@ -1,6 +1,7 @@
 package com.hooli.manage.vo;
 
 import com.hooli.core.validator.annotation.Phone;
+import com.hooli.manage.vo.base.BaseVo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -12,7 +13,7 @@ import javax.validation.constraints.Pattern;
 
 @ApiModel(value = "用户信息")
 @Data
-public class UserVo {
+public class UserVo extends BaseVo {
 
     @ApiModelProperty(value = "用户ID")
     private Integer id;

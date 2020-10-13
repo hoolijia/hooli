@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <!-- 配置对象环境
+    context的targetRuntime属性设置为MyBatis3Simple是为了避免生成Example相关的代码和方法。如果需要则改为Mybatis3.
+    defaultModelType="flat"目的是使每个表只生成一个实体类
+     -->
+    <context id="mysqlTables" targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <!-- 抑制警告 -->
+        <property name="suppressTypeWarnings" value="true" />
+
+        <plugin type="org.mybatis.generator.plugins.LombokPlugin">
+            <property name="generatorSerialVersionUID" value="true" />
+            <property name="ignoreFields" value="id,enabled,createTime,createBy,lastUpdateBy,lastUpdateTime" />
+        </plugin>
+
+<!--        <property name="autoDelimitKeywords" value="true"/>-->
+<!--        &lt;!&ndash;可以使用``包括字段名，避免字段名与sql保留字冲突报错&ndash;&gt;-->
+<!--        <property name="beginningDelimiter" value="`"/>-->
+<!--        <property name="endingDelimiter" value="`"/>-->
+
+<!--        &lt;!&ndash; 自动生成toString方法 &ndash;&gt;-->
+<!--        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>-->
+<!--        &lt;!&ndash; 自动生成equals方法和hashcode方法 &ndash;&gt;-->
+<!--        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>-->
+
+<!--        &lt;!&ndash; 非官方插件 https://github.com/itfsw/mybatis-generator-plugin &ndash;&gt;-->
+<!--        &lt;!&ndash; 查询单条数据插件 &ndash;&gt;-->
+<!--        <plugin type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>-->
+<!--        &lt;!&ndash; 查询结果选择性返回插件 &ndash;&gt;-->
+<!--        <plugin type="com.itfsw.mybatis.generator.plugins.SelectSelectivePlugin"/>-->
+<!--        &lt;!&ndash; Example Criteria 增强插件 &ndash;&gt;-->
+<!--        <plugin type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin"/>-->
+<!--        &lt;!&ndash; 数据Model属性对应Column获取插件 &ndash;&gt;-->
+<!--        <plugin type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>-->
+<!--        &lt;!&ndash; 逻辑删除插件 &ndash;&gt;-->
+<!--        <plugin type="com.itfsw.mybatis.generator.plugins.LogicalDeletePlugin">-->
+<!--            &lt;!&ndash; 这里配置的是全局逻辑删除列和逻辑删除值，当然在table中配置的值会覆盖该全局配置 &ndash;&gt;-->
+<!--            &lt;!&ndash; 逻辑删除列类型只能为数字、字符串或者布尔类型 &ndash;&gt;-->
+<!--            <property name="logicalDeleteColumn" value="deleted"/>-->
+<!--            &lt;!&ndash; 逻辑删除-已删除值 &ndash;&gt;-->
+<!--            <property name="logicalDeleteValue" value="1"/>-->
+<!--            &lt;!&ndash; 逻辑删除-未删除值 &ndash;&gt;-->
+<!--            <property name="logicalUnDeleteValue" value="0"/>-->
+<!--        </plugin>-->
+
+        <!-- 是否生成注释 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库连接信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/hooli?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC&amp;verifyServerCertificate=false&amp;useSSL=false"
+                        userId="root"
+                        password="root"/>
+
+        <!--指定生成的类型为java类型，避免数据库中number等类型字段 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--自动生成的实体的存放包路径 -->
+        <javaModelGenerator targetPackage="com.hooli.db.domain" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="com.hooli.db.mapper" targetProject="src/main/resources"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.hooli.db.mapper" targetProject="src/main/java"/>
+        <!--表名-->
+        <table tableName="user" domainObjectName="UserDto" mapperName="UserMapper" enableDeleteByPrimaryKey="false"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

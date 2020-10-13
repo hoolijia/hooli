@@ -2,7 +2,9 @@ package com.hooli.manage.api;
 
 import com.hooli.core.enums.ResultCode;
 import com.hooli.core.exceptions.BusinessException;
+import com.hooli.core.utils.ResponseUtil;
 import com.hooli.manage.service.IScoreService;
+import com.hooli.manage.service.IUserService;
 import com.hooli.manage.vo.UserVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,6 +22,18 @@ public class UserController {
 
     @Autowired
     private IScoreService iScoreService;
+
+    @Autowired
+    private IUserService iUserService;
+
+    @ApiOperation("分页")
+    @PostMapping("/list")
+    public Object getUserList(@RequestBody UserVo userVo) {
+
+        log.info("------------- get userList ---------------");
+
+        return iUserService.getUserList(userVo);
+    }
 
     @ApiOperation("获取用户信息")
     @GetMapping("/user")

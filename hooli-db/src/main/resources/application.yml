@@ -10,3 +10,7 @@ logging:
     org.springframework:  ERROR
     org.mybatis:  ERROR
     com.hooli.db:  DEBUG
+    com.baomidou.mybatisplus.samples: debug
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
