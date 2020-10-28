@@ -12,9 +12,15 @@
     </parent>
 
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>com.hooli</groupId>-->
+<!--            <artifactId>hooli-db</artifactId>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>com.hooli</groupId>
-            <artifactId>hooli-db</artifactId>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.0</version>
         </dependency>
     </dependencies>
 </project>

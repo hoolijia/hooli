@@ -28,6 +28,7 @@
         <module>hooli-credit-api</module>
         <module>hooli-order-api</module>
         <module>hooli-stock-api</module>
+        <module>hooli-wms-api</module>
     </modules>
 
     <dependencyManagement>

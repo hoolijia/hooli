@@ -29,8 +29,6 @@ public class IUserServiceImpl implements IUserService {
 
         Page<User> page = new Page<>(userVo.getPageNum(), userVo.getPageSize());
 
-        //Page<User> userPage =
-
         return ResponseUtil.okList(userMapper.selectPage(page, null));
     }
 }

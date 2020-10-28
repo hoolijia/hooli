@@ -11,4 +11,20 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.hooli</groupId>
+            <artifactId>hooli-core</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.hooli</groupId>-->
+<!--            <artifactId>hooli-db</artifactId>-->
+<!--        </dependency>-->
+    </dependencies>
+
 </project>
