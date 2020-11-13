@@ -46,6 +46,12 @@
         </dependency>
 
         <dependency>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.gitee.flying-cattle</groupId>
             <artifactId>mybatis-dsc-generator</artifactId>
             <version>3.0.7.RELEASE</version>

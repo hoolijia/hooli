@@ -1,11 +1,11 @@
 package com.hooli.order.api;
 
+import com.hooli.order.pojo.Order;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author ：hooli
@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
  * @description：
  */
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/orders")
 public class OrderController {
 
     @Autowired
@@ -28,5 +28,11 @@ public class OrderController {
     public Object deductStock(@RequestParam("productId") Long productId, @RequestParam("stockCount") Long stockCount) {
 
         return this.restTemplate.getForObject("http://localhost:9001/stock/deduct/" + productId + "/" + stockCount, String.class);
+    }
+
+    @GetMapping("order/{id}")
+    public Object getOrder(HttpServletRequest request, @PathVariable("id") String id) {
+        int localPort = request.getLocalPort();
+        return new Order(id, "orderName:" + localPort);
     }
 }
