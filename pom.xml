@@ -25,7 +25,7 @@
         <module>hooli-web-api</module>
         <module>hooli-core</module>
         <module>hooli-db</module>
-        <module>hooli-credit-api</module>
+        <module>hooli-credit-service</module>
         <module>hooli-order-service</module>
         <module>hooli-stock-service</module>
         <module>hooli-wms-service</module>
