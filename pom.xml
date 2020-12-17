@@ -103,8 +103,10 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>2.2.0.RELEASE</version>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>Hoxton.SR5</version>
+            <type>pom</type>
+            <scope>import</scope>
         </dependency>
 
         <!-- 测试模块 -->
@@ -126,13 +128,11 @@
             <artifactId>springfox-swagger2</artifactId>
             <version>2.9.2</version>
         </dependency>
-
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
             <version>1.5.22</version>
         </dependency>
-
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-models</artifactId>
@@ -193,20 +193,25 @@
             <version>2.9.0</version>
         </dependency>
 
+        <!-- alibaba cloud -->
+        <!-- feign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>2.2.0.RELEASE</version>
+        </dependency>
         <!-- nacos -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>2.2.1.RELEASE</version>
         </dependency>
-
+        <!-- sentinel -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-            <version>2.2.3.RELEASE</version>
+            <version>2.1.1.RELEASE</version>
         </dependency>
-
-
     </dependencies>
 
     <build>

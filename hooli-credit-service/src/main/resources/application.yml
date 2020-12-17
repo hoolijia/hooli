@@ -1,2 +1,16 @@
 server:
   port: 9010
+
+spring:
+  application:
+    name: hooli-credit-service
+
+  cloud:
+    nacos:
+      discovery:
+        # 指定nacos server的地址
+        server-addr: localhost:8848
+        # 指定集群名称
+        cluster-name: BJ
+        metadata:
+          version: v2
