@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HooliCreditApiApplication {
+public class CreditApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(HooliCreditApiApplication.class, args);
+        SpringApplication.run(CreditApp.class, args);
     }
 
 }
