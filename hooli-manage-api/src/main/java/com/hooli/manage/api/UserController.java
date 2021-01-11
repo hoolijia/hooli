@@ -14,6 +14,8 @@ import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Method;
+
 @Api(tags = "用户接口")
 @RestController
 @RequestMapping("test")
@@ -36,9 +38,11 @@ public class UserController {
     }
 
     @ApiOperation("获取用户信息")
-    @GetMapping("/user")
+    @GetMapping("user")
     public UserVo getUser() {
+
         log.info("--------- get user info ---------");
+        System.out.println(iUserService.count());
         UserVo userVo = new UserVo();
         userVo.setId(1);
         userVo.setUsername("hooli");
@@ -82,5 +86,11 @@ public class UserController {
     @PostMapping("/error2")
     public void error2() {
         throw new BusinessException(ResultCode.ERROR_USER_HAS_EXISTED);
+    }
+
+    @DeleteMapping("user")
+    public void del(String id) {
+
+        System.out.println(id);
     }
 }

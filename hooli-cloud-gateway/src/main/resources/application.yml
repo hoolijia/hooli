@@ -1,0 +1,33 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: hooli-cloud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      discovery:
+        locator:
+          # 让gateway通过服务发现组件找到其他的微服务，从而自动转发请求，一般不推荐打开
+          enabled: true
+      default-filters:
+        - AddRequestHeader=Y-Foo, Bar
+      routes:
+        - id: hooli-stock-service   # 路由的唯一标识，这种形式下通常是微服务名称
+          uri: lb://hooli-stock-service   # lb代表从注册中心获取服务
+          order: 9000
+          predicates:
+            # 指定具体的路径进行匹配
+            - Path=/stock/**
+        - id: hooli-order-service   # 路由的唯一标识，这种形式下通常是微服务名称
+          uri: lb://hooli-order-service   # lb代表从注册中心获取服务
+          order: 10000
+          predicates:
+            - Path=/orders/**
+          filters:
+            # Filter集合
+            # 为原始请求添加名为X-Request-Foo，值为Bar的请求头
+            - AddRequestHeader=X-Request-Foo, Bar

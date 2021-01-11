@@ -1,6 +1,8 @@
 package com.hooli.manage.service.impl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hooli.core.utils.ResponseUtil;
 import com.hooli.db.domain.User;
 import com.hooli.db.mapper.UserMapper;
@@ -19,7 +21,7 @@ import javax.annotation.Resource;
  */
 @Service
 @Slf4j
-public class IUserServiceImpl implements IUserService {
+public class IUserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
     @Resource
     private UserMapper userMapper;
@@ -31,4 +33,5 @@ public class IUserServiceImpl implements IUserService {
 
         return ResponseUtil.okList(userMapper.selectPage(page, null));
     }
+
 }

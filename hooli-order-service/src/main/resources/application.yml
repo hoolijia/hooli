@@ -20,7 +20,7 @@ spring:
         dashboard: localhost:8080
         # 指定和控制台通信的ip
         # 如不配置，会自动选择一个ip注册
-        #client-ip: localhost
+        client-ip: localhost
 
 feign:
   sentinel:

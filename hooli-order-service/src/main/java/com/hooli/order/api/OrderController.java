@@ -48,7 +48,7 @@ public class OrderController {
         return new Order(id, "orderName:" + localPort);
     }
 
-    @PostMapping("/create")
+    @PostMapping("/order")
     public Object createOrder(
             Long productId,
             Long userId,
